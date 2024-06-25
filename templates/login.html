@@ -1,0 +1,83 @@
+{% block "main" %}
+<!DOCTYPE html>
+{%  load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row-mt-5">
+        <div
+          class="col-md-5 mt-5 mx-auto shadow-lg p-3 mb-5 bg-body-tertiary rounded" 
+        >
+          <h1 class="text-center">Log In</h1>
+          <form action="" method="post">
+            {% csrf_token %}
+            {% if errmsg %}
+            <div class="alert alert-danger">
+              {{errmsg}}
+            </div>
+            {% endif %}
+            <div class="mb-3">
+              <label for="Input1" class="form-label">Username</label>
+              <input
+                type="email"
+                class="form-control"
+                name="uname"
+                id="Input1"
+                placeholder="Enter your username"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="Input2" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="upass"
+                id="Input2"
+                placeholder="Enter your password"
+              />
+            </div>
+
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="confirmationCheckbox"
+                />
+                <label class="form-check-label" for="confirmationCheckbox">
+                  Remember Me
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-3 text-center">
+              <button class="btn btn-outline-primary col-6" type="submit">
+                Log In
+              </button>
+            </div>
+
+            <div class="mb-3 text-center">
+              <div class="text fs-6 fw-light">
+                
+              </div>
+              <div class="text fs-6 fw-light">Not Registered ?</div>
+              <a href="/register">
+                <button type="button" class="btn btn-link">Sign Up</button>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+  </body>
+</html>
+{% endblock "main" %}
